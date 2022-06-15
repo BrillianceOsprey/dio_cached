@@ -39,6 +39,7 @@ dependencies:
   logger: ^1.1.0
   dio_flutter_transformer2: ^4.0.1
   dio_http_cache: ^0.3.0
+  dio_cache_interceptor: ^3.2.7
 
 dev_dependencies:
   flutter_test:

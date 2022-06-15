@@ -1,7 +1,9 @@
-import 'package:flutter_restapi/model/country.dart';
-import 'package:flutter_restapi/model/detail.dart';
-import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
+import 'package:retrofit/retrofit.dart';
+
+import '../model/country.dart';
+import '../model/detail.dart';
+
 part 'apiservice.g.dart';
 
 @RestApi(baseUrl: 'https://restcountries.com/v2/')

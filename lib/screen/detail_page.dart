@@ -1,18 +1,26 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_restapi/apiservice/apiservice.dart';
-import 'package:flutter_restapi/model/country.dart';
-import 'package:flutter_restapi/model/detail.dart';
 import 'package:get/get.dart';
 
-class DetailPage extends StatelessWidget {
-  DetailPage({Key? key}) : super(key: key);
-  ApiService _apiService = Get.find();
+import '../apiservice/apiservice.dart';
+import '../model/country.dart';
+import '../model/detail.dart';
+
+class DetailPage extends StatefulWidget {
+  const DetailPage({Key? key}) : super(key: key);
+
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  final ApiService _apiService = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    final options = buildCacheOptions(Duration(days: 7), forceRefresh: true);
+    final options =
+        buildCacheOptions(const Duration(days: 7), forceRefresh: true);
     Country country = Get.arguments;
     return Scaffold(
       appBar: AppBar(
@@ -28,7 +36,7 @@ class DetailPage extends StatelessWidget {
                 children: [
                   Card(
                     child: CachedNetworkImage(
-                        placeholder: (_, __) => Center(
+                        placeholder: (_, __) => const Center(
                               child: CircularProgressIndicator(),
                             ),
                         width: double.infinity,
@@ -42,11 +50,11 @@ class DetailPage extends StatelessWidget {
                 ],
               );
             } else if (snapshot.hasError) {
-              return Center(
+              return const Center(
                 child: Text('Error'),
               );
             } else {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }
