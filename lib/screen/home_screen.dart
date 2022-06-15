@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_restapi/dio_cache_inter/dio_cache_data.dart';
 import 'package:get/get.dart';
 
 import '../apiservice/apiservice.dart';
+import '../apiservice/dio_api_service.dart';
 import '../model/country.dart';
 import 'detail_page.dart';
 
@@ -19,14 +20,14 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final options =
-        buildCacheOptions(const Duration(days: 7), forceRefresh: true);
+    // final options =
+    //     buildCacheOptions(const Duration(days: 7), forceRefresh: true);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Country Flag'),
       ),
       body: FutureBuilder<List<Country>>(
-        future: _apiService.getCountry(options),
+        future: _apiService.getCountry(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> {
     return Card(
       child: ListTile(
         onTap: () {
-          Get.to(const DetailPage(), arguments: country);
+          // Get.to(const DetailPage(), arguments: country);
         },
         leading: CachedNetworkImage(
             width: 50,
