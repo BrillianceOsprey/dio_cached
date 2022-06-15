@@ -1,6 +1,5 @@
 import 'package:flutter_restapi/model/country.dart';
 import 'package:flutter_restapi/model/detail.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 part 'apiservice.g.dart';
@@ -11,5 +10,6 @@ abstract class ApiService {
   @GET('/all')
   Future<List<Country>> getCountry(@DioOptions() Options options);
   @GET('/name/{name}?fullText=true')
-  Future<List<Detail>> getDetail(@Path('name') String name);
+  Future<List<Detail>> getDetail(
+      @Path('name') String name, @DioOptions() Options options);
 }

@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_restapi/apiservice/apiservice.dart';
 import 'package:flutter_restapi/model/country.dart';
@@ -11,13 +12,14 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final options = buildCacheOptions(Duration(days: 7), forceRefresh: true);
     Country country = Get.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text(country.name),
       ),
       body: FutureBuilder<List<Detail>>(
-          future: _apiService.getDetail(country.name),
+          future: _apiService.getDetail(country.name, options),
           builder:
               (BuildContext context, AsyncSnapshot<List<Detail>> snapshot) {
             if (snapshot.hasData) {
