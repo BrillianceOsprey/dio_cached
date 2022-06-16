@@ -6,6 +6,7 @@ class AppPathProvider {
   static String? _path;
 
   static String get path {
+    print('get path: $_path');
     if (_path != null) {
       return _path!;
     } else {
@@ -16,5 +17,6 @@ class AppPathProvider {
   static Future<void> initPath() async {
     final dir = await pp.getApplicationDocumentsDirectory();
     _path = dir.path;
+    print('initPath: $_path');
   }
 }

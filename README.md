@@ -1,16 +1,25 @@
-# flutter_restapi
+# Flutter RestApi
 
-A new Flutter project.
+RestApi, Dio Http Cache
 
-## Getting Started
+## Acknowledgements
 
-This project is a starting point for a Flutter application.
+- [Ruby Learner in Youtube](https://www.youtube.com/watch?v=KGMVZ0iWbA4&list=PLRMx7dqC9wugm7HX-JfnIqILqabzPBuFi)
+- [dio_cache_interceptor at medium.com](https://medium.com/wesionary-team/flutter-dio-cache-8fdc178acbcc)
 
-A few resources to get you started if this is your first Flutter project:
+## dependencies
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- retrofit: any
+- get: ^4.6.1
+- cached_network_image: ^3.2.0
+- logger: ^1.1.0
+- dio_flutter_transformer2: ^4.0.1
+- dio_http_cache: ^0.3.0
+- dio_cache_interceptor: ^3.2.7
+- dio_cache_interceptor_hive_store: ^3.1.1
+- path_provider: ^2.0.11
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## dev_dependencies:
+
+- json_serializable: any
+- retrofit_generator: any
