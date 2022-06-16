@@ -55,7 +55,6 @@ class ApiHelper {
     };
   }
 
-  /// return response body or throws [NetworkExceptions]
   Future<List<Country>> get(
     String uri, {
     Map<String, dynamic>? queryParameters,
@@ -74,9 +73,6 @@ class ApiHelper {
           .map((e) => Country.fromJson(e)) // get it
           .toList();
       return countryList;
-
-      return [];
-      // return res.data;
     } on DioError catch (e) {
       throw e.message;
     }
@@ -100,9 +96,6 @@ class ApiHelper {
           .map((e) => Detail.fromJson(e)) // get it
           .toList();
       return detailList;
-
-      return [];
-      // return res.data;
     } on DioError catch (e) {
       throw e.message;
     }

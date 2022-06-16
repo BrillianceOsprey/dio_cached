@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Dio _dio = Dio();
     _dio.transformer = FlutterTransformer(); // for heavy json
-    _dio.interceptors
-        .add(LogInterceptor(logPrint: (log) => print(log), requestBody: false));
+    // _dio.interceptors
+    //     .add(LogInterceptor(logPrint: (log) => print(log), requestBody: false));
     return const GetMaterialApp(
       home: HomePage(),
     );
