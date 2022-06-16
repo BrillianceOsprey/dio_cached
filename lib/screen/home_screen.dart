@@ -1,10 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_restapi/dio_cache_inter/dio_cache_data.dart';
 import 'package:get/get.dart';
 
-import '../apiservice/apiservice.dart';
-import '../apiservice/dio_api_service.dart';
 import '../interceptor_dio/base_client_full code.dart';
 import '../model/country.dart';
 import 'detail_page.dart';
@@ -52,7 +49,7 @@ class _HomePageState extends State<HomePage> {
     return Card(
       child: ListTile(
         onTap: () {
-          // Get.to(const DetailPage(), arguments: country);
+          Get.to(const DetailPage(), arguments: country);
         },
         leading: CachedNetworkImage(
             width: 50,

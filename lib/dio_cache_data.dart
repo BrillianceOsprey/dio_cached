@@ -1,6 +1,7 @@
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:dio/dio.dart';
 
+// Not use now
 final options = CacheOptions(
   // A default store is required for interceptor.
   store: MemCacheStore(),

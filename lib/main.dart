@@ -3,7 +3,6 @@ import 'package:dio_flutter_transformer2/dio_flutter_transformer2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'dio_cache_inter/dio_cache_data.dart';
 import 'interceptor_dio/app_path_provider.dart';
 import 'screen/home_screen.dart';
 
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Dio _dio = Dio();
     _dio.transformer = FlutterTransformer(); // for heavy json
-    dio.interceptors
+    _dio.interceptors
         .add(LogInterceptor(logPrint: (log) => print(log), requestBody: false));
     return const GetMaterialApp(
       home: HomePage(),

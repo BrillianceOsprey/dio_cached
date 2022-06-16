@@ -1,12 +1,13 @@
 import 'dart:io';
+
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:dio_cache_interceptor_hive_store/dio_cache_interceptor_hive_store.dart';
-import 'package:flutter_restapi/interceptor_dio/app_path_provider.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:flutter_restapi/model/detail.dart';
 
 import '../model/country.dart';
+import 'app_path_provider.dart';
 
 const baseUrl = 'https://restcountries.com/v2/';
 
@@ -73,6 +74,32 @@ class ApiHelper {
           .map((e) => Country.fromJson(e)) // get it
           .toList();
       return countryList;
+
+      return [];
+      // return res.data;
+    } on DioError catch (e) {
+      throw e.message;
+    }
+  }
+
+  Future<List<Detail>> getDetail(
+    String uri, {
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+  }) async {
+    try {
+      final res = await _dio.get(
+        uri,
+        queryParameters: queryParameters,
+        options: options,
+        cancelToken: cancelToken,
+      );
+      final responseData = (res.data) as List<dynamic>; // List
+      final detailList = responseData
+          .map((e) => Detail.fromJson(e)) // get it
+          .toList();
+      return detailList;
 
       return [];
       // return res.data;
