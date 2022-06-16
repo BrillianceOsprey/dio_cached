@@ -2,7 +2,7 @@ import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:dio/dio.dart';
 
 // Global options
-final options = CacheOptions(
+CacheOptions options = CacheOptions(
   // A default store is required for interceptor.
   store: MemCacheStore(maxEntrySize: 512000, maxSize: 7340032),
 

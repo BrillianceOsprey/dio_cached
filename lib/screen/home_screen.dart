@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../apiservice/apiservice.dart';
 import '../apiservice/dio_api_service.dart';
+import '../interceptor_dio/base_client_full code.dart';
 import '../model/country.dart';
 import 'detail_page.dart';
 
@@ -16,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final ApiService _apiService = Get.find();
+  // final ApiService _apiService = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Country Flag'),
       ),
       body: FutureBuilder<List<Country>>(
-        future: _apiService.getCountry(),
+        future: ApiHelper.instance.get('https://restcountries.com/v2/all'),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
