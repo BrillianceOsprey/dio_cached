@@ -36,7 +36,7 @@ class ApiHelper {
         options: CacheOptions(
           store: HiveCacheStore(AppPathProvider.path),
           policy: CachePolicy.refreshForceCache,
-          hitCacheOnErrorExcept: [],
+          hitCacheOnErrorExcept: [222],
           maxStale: const Duration(
             days: 3,
           ), //increase number of days for loger cache
@@ -68,11 +68,21 @@ class ApiHelper {
         options: options,
         cancelToken: cancelToken,
       );
-      final responseData = (res.data) as List<dynamic>; // List
-      final countryList = responseData
-          .map((e) => Country.fromJson(e)) // get it
-          .toList();
-      return countryList;
+      print(res.data);
+      if (res.statusCode == 200) {
+        final responseData = (res.data) as List<dynamic>; // List
+        final countryList = responseData
+            .map((e) => Country.fromJson(e)) // get it
+            .toList();
+        return countryList;
+      } else {
+        final responseData = (res.data) as List<dynamic>; // List
+        final countryList = responseData
+            .map((e) => Country.fromJson(e)) // get it
+            .toList();
+        return countryList;
+        // return [];
+      }
     } on DioError catch (e) {
       throw e.message;
     }
